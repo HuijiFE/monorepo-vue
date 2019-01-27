@@ -13,6 +13,10 @@ body {
   min-height: 100vh;
 }
 
+.debug {
+  outline: rem($border-base) solid currentColor;
+}
+
 /**
  * Component: App
  */

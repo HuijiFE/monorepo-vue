@@ -7,7 +7,9 @@
     "ts": "ts-node -r tsconfig-paths/register -P ../../../scripts/tsconfig.json",
     "gen-files": "yarn ts scripts/gen-files",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build:csr": "vue-cli-service build --report --report-json",
+    "build:ssr": "vue-cli-service build --no-clean --ssr",
+    "build": "yarn build:csr && yarn build:ssr",
     "lint": "vue-cli-service lint",
     "test": "echo \"No test specified. Skip.\""
   },

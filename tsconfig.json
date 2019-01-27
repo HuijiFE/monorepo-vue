@@ -12,12 +12,13 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "allowJs": true,
-    "resolveJsonModule": true,
     "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
     "baseUrl": "."
   },
   "include": [
+    "packages/@huiji/*/src/**/*.ts",
     "packages/@ns/*/src/**/*.ts",
     "packages/@ns/*/src/**/*.tsx",
     "packages/@ns/*/tests/**/*.ts",

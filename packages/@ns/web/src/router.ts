@@ -1,20 +1,21 @@
-/**
- * Router config for web
- */
-
 import Vue from 'vue';
-import Router from 'vue-router';
+import VueRouter from 'vue-router';
 
-Vue.use(Router);
+Vue.use(VueRouter);
 
-export default new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: async () => import(/* webpackChunkName: "v-home" */ './views/home'),
-    },
-  ],
-});
+/**
+ * Factory function for vue router
+ */
+export function creatRouter(): VueRouter {
+  return new VueRouter({
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes: [
+      {
+        path: '/',
+        name: 'home',
+        component: async () => import(/* webpackChunkName: "v-home" */ './views/home'),
+      },
+    ],
+  });
+}

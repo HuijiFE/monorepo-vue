@@ -61,13 +61,6 @@ const baseOptions = pwaAssetsVersion => {
 const baseChainWebpack = (config, options) => {
   const { isProd, isLegacyBundle } = env();
 
-  const hashDigest = 'hex';
-  const hashDigestLength = 128;
-  const hashFunction = 'sha512';
-  const inlineLimit = 32;
-
-  const getAssetPath = require('@vue/cli-service/lib/util/getAssetPath');
-
   config.resolve.alias.delete('@');
 
   // pwa --------------------------------------------------------
@@ -88,83 +81,6 @@ const baseChainWebpack = (config, options) => {
       minify: false,
     },
   ]);
-
-  // js --------------------------------------------------------
-
-  if (isProd) {
-    const filename = getAssetPath(
-      options,
-      `js/[name]${isLegacyBundle ? '-legacy' : ''}${
-        options.filenameHashing ? '.[contenthash]' : ''
-      }.js`,
-    );
-
-    config.output
-      .filename(filename)
-      .chunkFilename(filename)
-      .hashDigest(hashDigest)
-      .hashDigestLength(hashDigestLength)
-      .hashFunction(hashFunction);
-  }
-
-  // css
-
-  if (isProd) {
-    const filename = getAssetPath(
-      options,
-      `css/[name]${options.filenameHashing ? '.[contenthash]' : ''}.css`,
-    );
-
-    config.plugin('extract-css').tap(([opt]) => [
-      {
-        ...opt,
-        filename: filename,
-        chunkFilename: filename,
-        hashDigest,
-        hashDigestLength,
-        hashFunction,
-      },
-    ]);
-  }
-
-  // assets --------------------------------------------------------
-
-  const genFileLoaderOptions = dir => ({
-    name: getAssetPath(
-      options,
-      `${dir}/[name]${
-        options.filenameHashing
-          ? `.[${hashFunction}:hash:${hashDigest}:${hashDigestLength}]`
-          : ''
-      }.[ext]`,
-    ),
-  });
-
-  [['images', 'img'], ['media', 'media'], ['fonts', 'fonts']].forEach(([rule, dir]) => {
-    config.module
-      .rule(rule)
-      .use('url-loader')
-      .loader('url-loader')
-      .tap(opt => ({
-        ...opt,
-        ...{
-          limit: inlineLimit,
-          fallback: {
-            loader: 'file-loader',
-            options: genFileLoaderOptions(dir),
-          },
-        },
-      }));
-  });
-
-  config.module
-    .rule('svg')
-    .use('file-loader')
-    .loader('file-loader')
-    .tap(opt => ({
-      ...opt,
-      ...genFileLoaderOptions('img'),
-    }));
 
   // extra modules --------------------------------------------------------
 
