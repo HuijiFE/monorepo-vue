@@ -14,8 +14,6 @@ const options = {
    */
   chainWebpack: config => {
     baseChainWebpack(config, options);
-
-    config.resolve.alias.set('@src', resolvePath('src'));
   },
 
   devServer: {

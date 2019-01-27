@@ -6,9 +6,7 @@
 function validateEnv(envName, value, available) {
   if (!available.includes(value)) {
     throw new Error(
-      `Invalid env ${envName}='${value}', it must be one of ${available.join(
-        ', '
-      )}`
+      `Invalid env ${envName}='${value}', it must be one of ${available.join(', ')}`,
     );
   }
 }
@@ -28,7 +26,7 @@ module.exports = function() {
    * @type {'web'}
    */
   const project = process.env.VUE_APP_PROJECT || 'web';
-  validateEnv('VUE_APP_PROJECT', project, ['web']);
+  validateEnv('VUE_APP_PROJECT', project, ['web', 'common']);
 
   const port = parseInt(process.env.VUE_APP_PORT, 10);
   if (!port) {
@@ -40,6 +38,6 @@ module.exports = function() {
     isLegacyBundle,
     side,
     project,
-    port
+    port,
   };
 };

@@ -1,5 +1,6 @@
 const Config = require('webpack-chain');
-const env = require('./.env');
+const env = require('./env');
+const cdnList = require('./pwa.cdn');
 
 const baseOptions = pwaAssetsVersion => {
   const { isProd, side, project, port } = env();
@@ -17,6 +18,8 @@ const baseOptions = pwaAssetsVersion => {
     outputDir: 'dist',
     filenameHashing: true,
 
+    runtimeCompiler: true,
+
     pwa: {
       assetsVersion: pwaAssetsVersion,
       workboxOptions: {
@@ -31,15 +34,15 @@ const baseOptions = pwaAssetsVersion => {
             urlPattern: '/static/*',
             handler: 'cacheFirst',
           },
-          // {
-          //   urlPattern: /^https?:\/\/cdn\.domain\.com\//,
-          //   handler: 'staleWhileRevalidate',
-          //   options: {
-          //     cacheableResponse: {
-          //       statuses: [0, 206],
-          //     },
-          //   },
-          // },
+          ...cdnList.map(urlPattern => ({
+            urlPattern,
+            handler: 'staleWhileRevalidate',
+            options: {
+              cacheableResponse: {
+                statuses: [0, 206],
+              },
+            },
+          })),
           {
             urlPattern: '/*',
             handler: 'networkFirst',

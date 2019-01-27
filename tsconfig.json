@@ -3,13 +3,9 @@
     "target": "esnext",
     "module": "esnext",
     "lib": ["dom", "dom.iterable", "scripthost", "esnext"],
-    "types": ["node"],
+    "types": ["node", "jest"],
     "typeRoots": ["./node_modules/@types"],
     "strict": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": true,
-    "strictBindCallApply": true,
-    "strictFunctionTypes": true,
     "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
@@ -24,8 +20,12 @@
   "include": [
     "packages/@ns/*/src/**/*.ts",
     "packages/@ns/*/src/**/*.tsx",
+    "packages/@ns/*/tests/**/*.ts",
+    "packages/@ns/*/tests/**/*.tsx",
+    "packages/@ns/*/scripts/**/*.ts",
+    // "packages/@ns/*/typings/**/*.d.ts",
     "scripts/**/*.ts",
-    "typings"
+    "typings/**/*.d.ts"
   ],
   "exclude": ["node_modules"]
 }

@@ -1,0 +1,47 @@
+/**
+ * Component: Footer
+ */
+@include comp('footer') {
+  position: relative;
+  flex: 1 1 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  padding: rem($swimlane-padding) 0;
+
+  @include elem('label') {
+    font-size: rem(font-size('xlarge'));
+  }
+
+  @include elem('group-label') {
+    font-size: rem(font-size('large'));
+  }
+
+  @include elem('item') {
+    font-size: rem(font-size('medium'));
+
+    transition: color ease-in-out $button-transition-duration;
+  }
+
+  @each $theme in $type-theme {
+    @include prop(
+      (
+        'theme': $theme,
+      )
+    ) {
+      color: theme($theme);
+      background-color: theme($theme, 'bg', 'lower');
+
+      @include elem('label', 'group-label') {
+        color: theme($theme, 'fg', 'emphasize');
+      }
+
+      @include elem('item') {
+        color: theme($theme, 'fg', 'sub');
+        &:hover {
+          color: theme($theme);
+        }
+      }
+    }
+  }
+}

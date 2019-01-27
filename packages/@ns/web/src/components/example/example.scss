@@ -1,0 +1,9 @@
+/**
+ * Component: Example
+ */
+@include comp('example') {
+  position: relative;
+  flex: 1 1 100%;
+  max-width: 100%;
+  min-width: 0;
+}

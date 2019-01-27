@@ -1,0 +1,64 @@
+/**
+ * Component: Header
+ */
+@include comp('header') {
+  position: relative;
+  flex: 1 1 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  height: rem($ns-header-height);
+
+  border-top: rem($border-base) solid transparent;
+  border-bottom: rem($border-base) solid transparent;
+
+  font-size: rem(font-size('large'));
+
+  @include elem('container') {
+    height: 100%;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: stretch;
+
+    overflow: hidden;
+  }
+
+  @include elem('item') {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    @include when('brand') {
+      font-weight: bold;
+    }
+  }
+
+  @each $theme in $type-theme {
+    @include prop(
+      (
+        'theme': $theme,
+      )
+    ) {
+      color: theme($theme);
+      background-color: theme($theme, 'bg');
+      border-color: theme($theme, 'bd');
+
+      @include elem('item') {
+        color: theme($theme, 'fg', 'sub');
+
+        @include when('brand') {
+          color: theme($theme, 'fg', 'emphasize');
+        }
+
+        &:hover {
+          color: theme($theme, 'fg', 'emphasize');
+        }
+      }
+    }
+  }
+}
