@@ -12,6 +12,11 @@ export function creatRouter(): VueRouter {
     base: process.env.BASE_URL,
     routes: [
       {
+        path: '/test',
+        name: 'test',
+        component: async () => import(/* webpackChunkName: "v-test" */ './views/test'),
+      },
+      {
         path: '/',
         name: 'home',
         component: async () => import(/* webpackChunkName: "v-home" */ './views/home'),

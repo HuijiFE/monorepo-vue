@@ -61,6 +61,7 @@ const baseOptions = pwaAssetsVersion => {
 const baseChainWebpack = (config, options) => {
   const { isProd, isLegacyBundle } = env();
 
+  config.resolve.symlinks(true);
   config.resolve.alias.delete('@');
 
   // pwa --------------------------------------------------------
