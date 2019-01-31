@@ -42,8 +42,8 @@ export class NsHeader extends Vue implements ThemeComponent {
               </a>
             </vd-flexbox>
             <vd-flexbox tag="li" flex="none" align="stretch">
-              <a staticClass="ns-header_item" href="/item">
-                Item
+              <a staticClass="ns-header_item" href="/test">
+                Test
               </a>
             </vd-flexbox>
 
