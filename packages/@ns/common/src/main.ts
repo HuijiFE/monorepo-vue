@@ -3,7 +3,7 @@
  * This is for running common standalone in static pages.
  */
 
-// tslint:disable:no-import-side-effect
+// tslint:disable:no-import-side-effect no-reserved-keywords
 import './main.scss';
 
 import Vue from 'vue';
@@ -19,6 +19,13 @@ const compsMap = {
 };
 
 if (window !== undefined) {
+  // Object.defineProperty(window, 'Vue2', {
+  //   writable: false,
+  //   get(): typeof Vue {
+  //     return Vue;
+  //   },
+  // });
+
   Object.keys(compsMap).forEach(tagName => {
     const el = document.querySelector(tagName);
     if (el) {

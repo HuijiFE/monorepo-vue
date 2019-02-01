@@ -3,21 +3,7 @@ const env = require('./env');
 const cdnList = require('./pwa.cdn');
 
 const baseOptions = pwaAssetsVersion => {
-  const { isProd, side, project, port } = env();
-
-  const publicPath = side === 'client' && !isProd ? '/' : '/static/';
-  if (isProd || side === 'server') {
-    const basePath = require('url').parse(publicPath).path;
-    if (!basePath || basePath === '/') {
-      throw new Error(`invalid publicPath: '${publicPath}'`);
-    }
-  }
-
   return {
-    publicPath,
-    outputDir: 'dist',
-    filenameHashing: true,
-
     runtimeCompiler: true,
 
     pwa: {
@@ -59,14 +45,14 @@ const baseOptions = pwaAssetsVersion => {
  * @param {Config} config
  */
 const baseChainWebpack = (config, options) => {
-  const { isProd, isLegacyBundle } = env();
+  const { isProd } = env();
 
   config.resolve.symlinks(true);
   config.resolve.alias.delete('@');
 
   // pwa --------------------------------------------------------
 
-  if (isProd) {
+  if (isProd && config.plugins.has('workbox')) {
     config.plugin('workbox').tap(([opt]) => {
       opt.exclude.push(/\.html$/);
 

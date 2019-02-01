@@ -1,4 +1,4 @@
-// tslint:disable:no-any
+// tslint:disable:no-any no-unsafe-any
 
 import Vue, { PluginFunction } from 'vue';
 import VoidUI, { VoidUIOptions } from 'void-ui';
