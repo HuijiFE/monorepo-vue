@@ -5,13 +5,15 @@
   "main": "src/index.ts",
   "scripts": {
     "clean:dist": "rimraf dist",
-    "ts": "ts-node -r tsconfig-paths/register -P ../../../scripts/tsconfig.json",
     "gen-files": "yarn ts scripts/gen-files.ts",
-    "ver": "echo VUE_APP_COMMON_VERSION=$npm_package_version > .env.local",
+    "env": "echo VUE_APP_COMMON_VERSION=$npm_package_version > .env.local",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "test": "echo \"No test specified. Skip.\""
+    "test": "vue-cli-service test:unit",
+    "lint:scss": "stylelint src/**/*.scss",
+    "lint:ts": "tslint -p tsconfig.json",
+    "lint": "yarn lint:scss && yarn lint:ts",
+    "ts": "ts-node -r tsconfig-paths/register -P ../../../scripts/tsconfig.json"
   },
   "dependencies": {
     "vue": "^2.5.22",

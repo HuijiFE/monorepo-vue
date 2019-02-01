@@ -7,10 +7,14 @@
     "packages/@ns/*"
   ],
   "scripts": {
-    "ver": "echo $npm_package_version",
-    "ts": "ts-node -r tsconfig-paths/register -P scripts/tsconfig.json",
     "dep": "yarn ts scripts/dependencies.ts",
-    "gen-files": "lerna run gen-files"
+    "clean:dist": "lerna run clean:dist",
+    "gen-files": "lerna run gen-files",
+    "env": "lerna run env",
+    "build": "lerna run build",
+    "lint": "lerna run lint",
+    "test": "lerna run test",
+    "ts": "ts-node -r tsconfig-paths/register -P scripts/tsconfig.json"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.13",
