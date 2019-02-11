@@ -3,5 +3,4 @@ package.json
 package-lock.json
 yarn.lock
 
-variables-maps.scss
 variables.scss
