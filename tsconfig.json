@@ -28,5 +28,5 @@
     "scripts/**/*.ts",
     "typings/**/*.d.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "packages/*/*/node_modules"]
 }
