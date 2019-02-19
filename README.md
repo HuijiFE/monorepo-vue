@@ -30,6 +30,8 @@ packages/@ns
 
 ### Boostrap
 
+> **NOTE**: Please disable git core.autocrlf before clone. `git config --global core.autocrlf false`
+
 ```bash
 # clone the repo
 git clone git@github.com:duduluu/monorepo-vue.git
