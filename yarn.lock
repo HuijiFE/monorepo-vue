@@ -3487,6 +3487,11 @@ ccount@^1.0.0:
   resolved "https://registry.yarnpkg.com/ccount/-/ccount-1.0.3.tgz#f1cec43f332e2ea5a569fd46f9f5bde4e6102aff"
   integrity sha512-Jt9tIBkRc9POUof7QA/VwWd+58fKkEEfI+/t1/eOlxKM7ZhrczNzMFefge7Ai+39y1pR/pP6cI19guHy3FSLmw==
 
+cep.scss@^1.0.1:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/cep.scss/-/cep.scss-1.1.0.tgz#a1cb9ecbc74b85aa5de82af8a633353994d70a94"
+  integrity sha512-8VQJXmgqMr6QWH3ZZV7VgP3bI3EehaRs2dUfzAxLYERIDR83bbNCgMCdpMphcoFHcGrwi+++wzJn6u09FCrFbQ==
+
 chai-nightwatch@~0.1.x:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/chai-nightwatch/-/chai-nightwatch-0.1.1.tgz#1ca56de768d3c0868fe7fc2f4d32c2fe894e6be9"
@@ -9297,6 +9302,11 @@ normalize-url@^3.0.0, normalize-url@^3.3.0:
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-3.3.0.tgz#b2e1c4dc4f7c6d57743df733a4f5978d18650559"
   integrity sha512-U+JJi7duF1o+u2pynbp2zXDW2/PADgC30f0GsHZtRh+HOcXHnw137TrNlyxxRvWW5fjKd3bcLHPxofWuCjaeZg==
 
+normalize.css@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-8.0.1.tgz#9b98a208738b9cc2634caacbc42d131c97487bf3"
+  integrity sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==
+
 npm-bundled@^1.0.1:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/npm-bundled/-/npm-bundled-1.0.6.tgz#e7ba9aadcef962bb61248f91721cd932b3fe6bdd"
@@ -13435,6 +13445,14 @@ vm-browserify@0.0.4:
   integrity sha1-XX6kW7755Kb/ZflUOOCofDV9WnM=
   dependencies:
     indexof "0.0.1"
+
+void-ui@^0.7.25:
+  version "0.7.25"
+  resolved "https://registry.yarnpkg.com/void-ui/-/void-ui-0.7.25.tgz#f012f194e3a4dbd8a903b106e94919b0d4854ed3"
+  integrity sha512-RTdtF7RBstB0svFSULZrZacZtDkFbhNOZoQiyBoYH4vx5QCugVvxirxUAMjCyb6ijZJLqVhW7SqsjMxoqnG5oA==
+  dependencies:
+    cep.scss "^1.0.1"
+    normalize.css "^8.0.1"
 
 vue-class-component@^6.2.0, vue-class-component@^6.3.2:
   version "6.3.2"
