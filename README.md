@@ -42,7 +42,7 @@ git clone git@github.com:duduluu/monorepo-vue.git
 cd monorepo-vue
 
 # install dependencies
-yarn install
+lerna bootstrap
 ```
 
 ### Develop sub-project @ns/web

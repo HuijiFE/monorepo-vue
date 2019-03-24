@@ -9,7 +9,7 @@ import { genPathResolve } from '@huiji/shared-utils';
 
 const resolvePath = genPathResolve(__dirname, '..');
 
-const excludes = ['jest'];
+const excludes = ['jest', '@types/jest'];
 
 async function load(file: string): Promise<[string[], string[]]> {
   return new Promise<[string[], string[]]>((resolve, reject) => {
