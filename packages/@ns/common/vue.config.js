@@ -6,7 +6,7 @@ const resolvePath = genPathResolve(__dirname);
 
 const options = {
   ...baseOptions(),
-  publicPath: process.env.NODE_ENV === 'production' ? '//static.a9vg.com/common/' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/common/' : '/',
   filenameHashing: false,
 
   /**

@@ -10,7 +10,7 @@ const baseOptions = pwaAssetsVersion => {
       assetsVersion: pwaAssetsVersion,
       workboxOptions: {
         importWorkboxFrom: 'local',
-        cacheId: 'a9vg',
+        cacheId: 'ns',
         runtimeCaching: [
           {
             urlPattern: '/',
