@@ -1,10 +1,11 @@
 import Vue from 'vue';
 import Common from '@ns/common';
-Vue.use(Common);
 
-import App from './views/app';
 import VueRouter from 'vue-router';
+import App from './views/app';
 import { creatRouter } from './router';
+
+Vue.use(Common);
 
 Vue.config.productionTip = false;
 

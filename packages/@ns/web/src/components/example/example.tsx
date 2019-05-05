@@ -17,9 +17,11 @@ import { ClassName, Theme, ThemeComponent } from 'void-ui';
 export class CExample extends Vue implements ThemeComponent {
   @Prop(String)
   public readonly theme?: Theme;
+
   public get themeValue(): Theme {
     return this.theme || this.$vd_theme.theme || 'lite';
   }
+
   public get classes(): ClassName {
     return [`cp-theme_${this.themeValue}`];
   }

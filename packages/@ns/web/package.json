@@ -11,7 +11,7 @@
     "build:ssr": "vue-cli-service build --no-clean --ssr",
     "build": "yarn build:csr && yarn build:ssr",
     "lint:scss": "stylelint src/**/*.scss",
-    "lint:ts": "tslint -p tsconfig.json",
+    "lint:ts": "vue-cli-service lint",
     "lint": "yarn lint:scss && yarn lint:ts",
     "ts": "ts-node -r tsconfig-paths/register -P ../../../scripts/tsconfig.json"
   },
@@ -24,9 +24,14 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.7.0",
+    "@vue/cli-plugin-eslint": "^3.7.0",
     "@vue/cli-plugin-pwa": "^3.7.0",
     "@vue/cli-plugin-typescript": "^3.7.0",
     "@vue/cli-service": "^3.7.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.2.2",
     "fibers": "^3.1.1",
     "sass": "^1.20.1",
     "sass-loader": "^7.1.0",
